@@ -2,4 +2,3 @@
 . ~/bin/dotfiles/zsh/aliases
 . ~/bin/dotfiles/zsh/env
 ZSH_THEME=myt
-
