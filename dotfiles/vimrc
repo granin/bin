@@ -10,13 +10,11 @@ endfunction
 "noremap <leader>y "*y
 "noremap <leader>yy "*Y
 filetype on
-filetype off
- set nocompatible               " be iMproved
-  filetype off                   " required!
+set nocompatible               " be iMproved
 
-   set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
-filetype plugin indent on     " required!
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
 "... your configuration goes here
 " Preserve indentation while pasting text from the OS X clipboard
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
@@ -32,7 +30,6 @@ colorscheme solarized
 " This script assumes formd is in your path at:
 " ~/bin/formd/formd
 " http://drbunsen.github.com/formd/
- 
  
 function! Formd(option)
     :let save_view = winsaveview()
@@ -63,10 +60,8 @@ set shell=bash
 " see shallowsky.com/linux/noaltscreen.html
 set t_ti= t_te=
 
-
 " Colors **********************************************************************
 "
-
 
 set t_Co=256 " 256 colors
 syntax on " syntax highlighting
@@ -85,7 +80,6 @@ endif
 " -----------------------------------------------------------------------------
 " load the plugin and indent settings for the detected filetype 
 filetype plugin on
-filetype indent on
 
 " Add recently accessed projects menu (project plugin)
 set viminfo^=!
@@ -99,7 +93,6 @@ highlight lCursor guifg=NONE guibg=Cyan
 " Indenting *******************************************************************
 set ai " Automatically set the indent of a new line (local to buffer)
 set si " smartindent  (local to buffer)
-
 
 " Scrollbars ******************************************************************
 set numberwidth=5
@@ -115,8 +108,6 @@ set splitbelow splitright
 " Cursor highlights ***********************************************************
 set cursorline
 "set cursorcolumn
-
-
 
 " Status Line *****************************************************************
 set showcmd     " display incomplete commands
@@ -138,7 +129,6 @@ set wrapmargin=0
 "If you want to keep your existing 'textwidth' settings for most lines in your file, but not have Vim automatically reformat when typing on existing lines, you can do this with: A
 
 :set formatoptions+=l
-
 
 " Directories *****************************************************************
 " Setup backup location and enable
@@ -252,31 +242,11 @@ if has("mac")
   nmap <silent> <D-Right> <C-i>
 endif
 
-" Windows *********************************************************************
-"if has("gui_win32")
-""
-"endif
-
-
-
-
 " Change which file opens after executing :Rails command
 let g:rails_default_file='config/database.yml'
 
-
-filetype plugin on
 set ofu=syntaxcomplete#Complete
 
-"====================================
-"====================================
-"====================================
-"call pathogen#runtime_append_all_bundles()
-"bufferexplorer plugin
-" let g:bufExplorerShowRelativePath=1
-"
-"
-"====================================
-"====================================
 "====================================
 " отключить автоматическое открытие новой строки комментария
 " set formatoptions-=o
@@ -292,7 +262,6 @@ endif
 if has("gui_macvim")
     let macvim_hig_shift_movement = 1
 endif
- 
  
 " сохранять умные резервные копии ежедневно
 function! BackupDir()
@@ -314,7 +283,6 @@ endfunction
  
 " выполним перед записью буффера на диск
 autocmd! bufwritepre * call BackupDir()
- 
  
 " хранить больше истории команд ...
 set history=1000     " keep 50 lines of command line history
@@ -431,7 +399,6 @@ set vb
 
 " allow backspacing over everything in insert mode
 " Allow backspacing over indent, eol, and the start of an insert
-set backspace=2 "set backspace=indent,eol,start
 
 " Set the status line the way I like it
 set stl=%f\ %m\ %r\ Line:\ %l/%L[%p%%]\ Col:\ %c\ Buf:\ #%n\ [%b][0x%B]
@@ -450,7 +417,7 @@ set guioptions=ac
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 " Forget being compatible with good ol' vi
-set nocompatible
+
 " MISC
 "=====================
 "http://www.derekwyatt.org/vim/the-vimrc-file/better-settings/
@@ -466,8 +433,6 @@ set shellslash
 set clipboard=unnamed
 
 "================
-"================
-
 
 " не выгружать скрытые буферы
 set hidden
@@ -475,7 +440,6 @@ set hidden
 " Don't update the display while executing macros
 set lazyredraw
 "set lz " ленивая перерисовка экрана при выполнении скриптов
-
 
 " At least let yourself know what mode you're in
 set showmode
@@ -488,8 +452,6 @@ set wildmenu
 set incsearch       " do incremental searching
 "
  
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
  let g:PreviewBrowsers=' firefox,safari,epiphany,google-chrome,opera' 
  let g:PreviewCSSPath='/path/to/css/file'
  let g:PreviewTextileExt='textile,txt'
@@ -504,10 +466,7 @@ set hlsearch " highlight search
 " turns out he was right :)
 set incsearch " incremental search, search as you type
 set showmatch 
-set ignorecase " Ignore case when searching
 set smartcase " Vim ищет игнорируя регистр если искомое выражение не содержит большие буквы, в противном случае учитывает регистр.
-
-
 
 "================
 set ai " включим автоотступы для новых строк
@@ -529,7 +488,6 @@ set fileformats=unix,dos,mac
 " максимальное число вкладок
 set tabpagemax=99
  
- 
 if has("folding")
  
     " сворачивать по отступам
@@ -542,7 +500,6 @@ endif
 " и русский
 :setlocal spell spelllang=ru,en_us
 "
-"
 " хранить swap в отдельном каталоге
 set directory=~/.vim/swap/
 " включить сохранение резервных копий
@@ -553,14 +510,13 @@ set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
 "=========================================
-"=====VISUAL APEARANCE====================
+"=====VISUAL APPEARANCE====================
 "=========================================
 " Underlining search results in vim (instead of highlighting them)
 hi Tab gui=underline guifg=blue ctermbg=blue 
 
 "no extension files are what?
 "au BufNewFile,BufRead * if &ft == '' | set ft=markdown | endif
-
 
 " --- подсветка ---
  
@@ -657,9 +613,6 @@ let maplocalleader = ","
 
 "swapping
 
-
-
-
 "To use this mapping: first, delete some text (using a command such as daw or dt in normal mode, or x in visual mode). Then, use visual mode to select some other text, and press Ctrl-X. The two pieces of text should then be swapped.
 
 :vnoremap <C-X> <Esc>`.``gvP``P
@@ -679,7 +632,6 @@ let maplocalleader = ","
 ":nnoremap <silent> gw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
 " This version will work across newlines:
 :nnoremap <silent> gw "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
-
 
 "RagTag
  "=====================
@@ -746,7 +698,6 @@ map -- :ZoomWin<CR>
 
 " CTags
 "map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
-
 
 " Inserts the path of the currently edited file into a command
 "zsh:1: command not found: m
@@ -822,7 +773,6 @@ function! ToggleEnterMapping()
 endfunction
 call ToggleEnterMapping()
 
-
 inoremap <expr> <S-CR> ToggleEnterMapping()
 " Optional (so <CR> cancels prefix, selection, operator).
 "nnoremap <CR> <Esc>
@@ -835,23 +785,6 @@ inoremap <expr> <S-CR> ToggleEnterMapping()
 inoremap <C-U> <C-G>u<C-U>
 "пробелом перехд из normal в insert mode
 ":nm <Space> i
-
-
-" CoffeeScript**************************************************************
-"Disable trailing whitespace error highlighting
-"If having trailing whitespace highlighted as an error is a bit much, the following line can be added to your ~/.vimrc to disable it:
-
-let coffee_no_trailing_space_error = 1
-
-"Disable trailing semicolon error highlighting
-"Likewise for the highlighting of trailing semicolons:
-
-let coffee_no_trailing_semicolon_error = 1
-
-"Disable future/reserved words error highlighting
-"The same for reserved words:
-
-let coffee_no_reserved_words_error = 1
 
 "js check
 cabbr js !js ~/bin/js/runjslint.js "`cat %`" \| ~/bin/python/format_lint_output.py
@@ -892,19 +825,9 @@ fun! IgnoreCamelCaseSpell()
 endfun
 autocmd BufRead,BufNewFile * :call IgnoreCamelCaseSpell()
 
-
-
 " -----------------------------------------------------------------------------
 " | Plugins |
 " -----------------------------------------------------------------------------
-"YankRing
- "nnoremap <silent> <leader>y :YRShow<CR>
-" Minibuffer Explorer Settings
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplMapWindowNavArrows = 1
-"let g:miniBufExplMapCTabSwitchBufs = 1
-"let g:miniBufExplModSelTarget = 1
-
 " NERDTree ********************************************************************
 nmap <silent> <unique> <leader>U :NERDTreeToggle<CR>
 nmap <silent> <unique> <leader>/ :NERDTreeFind<CR>
@@ -922,10 +845,6 @@ let NERDTreeIgnore=['.class$', '\.rbc$', '\~$']
 nmap <silent> <leader>R :FufFile<CR>
 nmap <silent> <leader>L :FufBuffer<CR>
 let g:fuzzy_ignore = '.o;.obj;.bak;.exe;.pyc;.pyo;.DS_Store;.db'
-
-
-" yankring*********************************************************************
-"let g:yankring_history_dir = expand('$HOME/.vim/tmp')
 
 " Command-T *******************************************************************
 "let g:CommandTMatchWindowAtTop = 1
@@ -1079,9 +998,7 @@ nmap <unique><leader>K :set list!<CR>
 "set listchars=tab:▸\ ,eol:¬
 "set listchars=tab:··
 "
-"
 "------------------------------------------------------------------------
-"
 "
 function! <SID>StripTrailingWhitespaces()
   " Preparation: save last search, and cursor position.
@@ -1107,8 +1024,6 @@ endif
 " don't Automatically detect file types.
 filetype on
 "filetype off" required!
-
-set nocompatible  " We don't want vi compatibility.
 
  set rtp+=~/.vim/bundle/vundle/
  call vundle#rc()
@@ -1199,11 +1114,6 @@ Bundle 'cwoac/nvim'
 
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
-"
-"
-"
-"
-"
 "
 "------------------------------------------------------------------------
 "
