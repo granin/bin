@@ -12,8 +12,6 @@ endfunction
 filetype on
 set nocompatible               " be iMproved
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
 
 "... your configuration goes here
 " Preserve indentation while pasting text from the OS X clipboard

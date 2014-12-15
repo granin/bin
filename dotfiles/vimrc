@@ -8,6 +8,96 @@ set ttimeout
 set ttimeoutlen=100
 set expandtab
 
+"=== Vundle ===
+
+" don't Automatically detect file types.
+filetype on
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle' 
+" original repos on github
+Bundle 'bkad/CamelCaseMotion'                      
+Bundle 'kien/ctrlp.vim'
+Bundle 'vim-scripts/ZoomWin'                       
+Bundle 'vim-scripts/Color-Sampler-Pack'            
+Bundle 'vim-scripts/MailApp'                       
+Bundle 'vim-scripts/ScrollColors'                  
+Bundle 'vim-scripts/translit_converter'            
+Bundle 'tpope/vim-ragtag'                          
+Bundle 'slack/vim-bufexplorer'                     
+Bundle 'altercation/vim-colors-solarized'          
+Bundle 'kchmck/vim-coffee-script'                  
+Bundle 'Lokaltog/vim-easymotion'                   
+Bundle 'mattn/gist-vim'                            
+Bundle 'itspriddle/vim-jquery'                     
+Bundle 'michaeljsmith/vim-indent-object'           
+Bundle 'vim-scripts/Conque-Shell'
+Bundle 'tpope/vim-pastie'                          
+Bundle 'gerardc/vim-padrino'                       
+Bundle 'tpope/vim-repeat'                          
+Bundle 'tpope/vim-speeddating'                     
+Bundle 'tpope/vim-markdown'                        
+Bundle 'cakebaker/scss-syntax.vim'                 
+Bundle 'sophacles/vim-outliner'                    
+Bundle 'bbommarito/vim-slim'                       
+Bundle 'tpope/vim-rails'                           
+Bundle 'tpope/vim-cucumber'                        
+Bundle 'tpope/vim-haml'                            
+Bundle 'scrooloose/nerdtree'                       
+Bundle 'mileszs/ack.vim'                           
+Bundle 'godlygeek/tabular'                         
+Bundle 'tpope/vim-fugitive'                        
+Bundle 'srushti/snipmate.vim'                      
+Bundle 'scrooloose/nerdcommenter'                  
+Bundle 'duff/vim-bufonly'                          
+Bundle 'tpope/vim-endwise'                         
+Bundle 'tpope/vim-surround'                        
+Bundle 'tpope/vim-unimpaired'                      
+Bundle 'tpope/vim-rake'                            
+Bundle 'pangloss/vim-javascript'                   
+Bundle 'Townk/vim-autoclose'                       
+Bundle 'ecomba/vim-ruby-refactoring'               
+Bundle 'nelstrom/gundo.vim'                        
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'stacruz/sparkup.git'
+Bundle 'jpalardy/vim-slime.git'
+Bundle 'duff/vim-scratch'
+Bundle 'vim-scripts/Rainbow-Parenthesis'
+Bundle 'docunext/closetag.vim'
+Bundle 'kevinw/pyflakes-vim'
+Bundle 'vim-scripts/Better-CSS-Syntax-for-Vim'
+Bundle 'skammer/vim-css-color'
+Bundle 'Raimondi/delimitMate'
+Bundle 'cwoac/nvim'
+"Bundle 'tpope/vim-pathogen'                        
+"Bundle 'danchoi/soywiki'                            
+"Bundle 'vim-scripts/YankRing.vim'
+"Bundle 'shemerey/vim-project'                      
+"Bundle 'vim-scripts/netrw.vim'                     
+"Bundle 'tsaleh/vim-align'                          
+"Bundle 'vim-scripts/vimwiki.git'                   
+"Bundle 'hallettj/jslint.vim'                       
+"Bundle 'jcf/rvm_ruby.vim'                          
+"Bundle 'Lokaltog/vim-powerline'
+"Bundle 'robgleeson/hammer.vim'                     
+"Bundle 'khussein/vimchat.git'   
+"Bundle 'ervandew/supertab'     "kills autocompletion
+"Bundle 'minibufexpl.vim'       "doesn't stict to bottom so takes space
+"when window is resized
+"Bundle 'godlygeek/csapprox'    "kills colorschemes in terminal, works
+"after sourcing vimrc again
+"Bundle 'shemerey/vim-peepopen' "no need as i live in terminal
+"Bundle 'chrismetcalf/vim-yankring'               "obstricts ctrlp
+
+" vim-scripts repos
+" Bundle 'L9'
+"Bundle 'FuzzyFinder'
+
+" non github repos
+"Bundle 'git://git.wincent.com/command-t.git'
+"
+"------------------------------------------------------------------------
 " === Russian language ===
 if has("unix")
     " кодировка по-умолчанию
@@ -76,6 +166,25 @@ set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
 " === Remaping ===
+"WINDOWS
+"=========================================
+"http://www.derekwyatt.org/vim/the-vimrc-file/walking-around-your-Windows/
+
+noremap <silent> - <C-W>
+nmap <silent> <unique> <leader><leader> :wincmd w<cr>
+
+" Close the window below this one
+noremap <silent> +J :wincmd j<cr>:close<cr>
+
+" Close the window above this one
+noremap <silent> +K :wincmd k<cr>:close<cr>
+
+" Close the window to the left of this one
+noremap <silent> +H :wincmd h<cr>:close<cr>
+
+" Close the window to the right of this one
+noremap <silent> +L :wincmd l<cr>:close<cr>
+
 "EDIT / SOURCES FILES
 map <Leader>v :vsp ~/.vimrc<CR>
 
