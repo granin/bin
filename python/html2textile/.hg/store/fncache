@@ -1,0 +1,9 @@
+data/.hgignore.i
+data/LICENSE.i
+data/MANIFEST.i
+data/README.txt.i
+data/html2textile.py.i
+data/setup.py.i
+data/test.i
+data/test.py.i
+data/test3.i

@@ -1,0 +1,16 @@
+ [[ -s “/Users/ryan/.rvm/scripts/rvm” ]] && source “/Users/ryan/.rvm/scripts/rvm”
+
+ export VMAIL_HTML_PART_READER='elinks -dump'
+ export VMAIL_VIM=mvim
+ export SOYWIKI_VIM=mvim
+ export EDITOR="mvim -f"
+ export PATH=$PATH:~/bin 
+ export  NODE_PATH=/usr/local/lib/node
+ fpath=($fpath $HOME/.zsh/func)
+ typeset -U fpath
+
+ export PATH=/usr/local/bin:/Users/misha/.rvm/wrappers/ruby-1.9.2-p136/ruby/bin:~/.gem/ruby/1.8/bin:$PATH
+ # Set PATH, CDPATH, EDITOR, etc.
+
+ #diaspora
+export DB="mysql"

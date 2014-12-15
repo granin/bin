@@ -1,0 +1,296 @@
+
+:bmark-keyword clip "javascript:(function(){var%20e=function(t,n,r,i,s){var%20o=[3284657,4032407,4918060,4904182,6517063,3110751,1495542,4032098,2963942,5008062];var%20i=i||0,u=0,n=n||[],r=r||0,s=s||0;var%20a={'a':97,'b':98,'c':99,'d':100,'e':101,'f':102,'g':103,'h':104,'i':105,'j':106,'k':107,'l':108,'m':109,'n':110,'o':111,'p':112,'q':113,'r':114,'s':115,'t':116,'u':117,'v':118,'w':119,'x':120,'y':121,'z':122,'A':65,'B':66,'C':67,'D':68,'E':69,'F':70,'G':71,'H':72,'I':73,'J':74,'K':75,'L':76,'M':77,'N':78,'O':79,'P':80,'Q':81,'R':82,'S':83,'T':84,'U':85,'V':86,'W':87,'X':88,'Y':89,'Z':90,'0':48,'1':49,'2':50,'3':51,'4':52,'5':53,'6':54,'7':55,'8':56,'9':57,'\/':47,':':58,'?':63,'=':61,'-':45,'_':95,'&':38,'$':36,'!':33,'.':46};if(!s||s==0){t=o[0]+t}for(var%20f=0;f<t.length;f++){var%20l=function(e,t){return%20a[e[t]]?a[e[t]]:e.charCodeAt(t)}(t,f);if(!l*1)l=3;var%20c=l*(o[i]+l*o[u%o.length]);n[r]=(n[r]?n[r]+c:c)+s+u;var%20p=c%(50*1);if(n[p]){var%20d=n[r];n[r]=n[p];n[p]=d}u+=c;r=r==50?0:r+1;i=i==o.length-1?0:i+1}if(s==318){var%20v='';for(var%20f=0;f<n.length;f++){v+=String.fromCharCode(n[f]%(25*1)+97)}o=function(){};return%20v+'a089588cf3'}else{return%20e(u+'',n,r,i,s+1)}};var%20t=document,n=t.location.href,r=t.title;var%20i=e(n);var%20s=t.createElement('script');s.type='text/javascript';s.src='https://getpocket.com/b/r4.js?h='+i+'&u='+encodeURIComponent(n)+'&t='+encodeURIComponent(r);e=i=function(){};var%20o=t.getElementsByTagName('head')[0]||t.documentElement;o.appendChild(s)})()"
+
+:map -ex gC :open clip
+
+"1.0rc1
+"Come 显示 栏 隐藏 tools map to js functions F2
+map <F8> :set go!=mT<CR>
+ autocmd LocationChange ^https?://mail.google\.com/ :normal! <C-z>
+ set scroll=10
+ " BufTab options ---
+"set buftabs-showicons
+map -modes=n,v <F3> :set<Space>nobuftabs<Return>
+
+" Edit rc file
+cmap <Leader>rc :!gvim $HOME/.pentadactylrc
+
+highlight TabIconNumber color: #C6C5FE; font-weight: bold; font-size:12px;
+highlight TabIcon padding: 0px;
+highlight TabText font-size: 12px;
+
+
+style -name bookmarkbar chrome://* <<EOM
+.toolbarbutton-icon {
+  height: 18px !important;
+}
+EOM
+
+
+" Show the Feed and Bookmark buttons on the statusbar
+javascript <<EOF
+(function(){
+    var statusPanel = document.createElement("statusbarpanel");
+    statusPanel.setAttribute("id", "buttons-panel-clone");
+    statusPanel.appendChild(document.getElementById("feed-button"));
+    statusPanel.appendChild(document.getElementById("star-button"));
+    statusPanel.firstChild.setAttribute("style", "padding: 0; max-height: 22px;");
+    document.getElementById("status-bar")
+            .insertBefore(statusPanel, document.getElementById("security-button"));
+})();
+EOF
+
+" vim: set ft=pentadactyl:
+" buffers 快速打开
+noremap bm :buffer gmail<CR>
+noremap br :buffer google reader<CR>
+noremap bt :buffer twitter<CR>
+noremap bn :bmarks<space>
+noremap ba :buffer about:blank<CR>
+
+noremap cd :copy titleAndURL<CR>
+noremap ca :copy anchor<CR>
+noremap cs :copy selanchor<CR>
+noremap cb :copy htmlblockquote<CR>
+noremap ll :shorten<CR>
+
+set editor='/usr/local/bin/mvim -f'
+
+" NAME:    simple-translate
+set langpair="en|ru"
+ 
+map <C-W> <Esc>
+map <C-Q> <Esc>
+map <A-f> <F11>:set guioptions!=s<CR>
+map <C-j> <C-d>
+map <C-k> <C-u>
+map <C-h> <C-PageUp>
+map <C-l> <C-PageDown>
+map <A-C-h> :tabprev<CR>
+map <A-C-l> :tabnext<CR>
+imap <A-C-h> <Esc>:tabprev<CR>
+imap <A-C-l> <Esc>:tabnext<CR>
+
+imap <C-j> <Esc><C-d>
+imap <C-k> <Esc><C-u>
+imap <C-h> <C-PageUp>
+imap <C-l> <C-PageDown>
+
+map <A-j> :wincmd j<CR>
+map <A-k> :wincmd k<CR>
+map <A-h> :wincmd h<CR>
+map <A-l> :wincmd l<CR>
+
+map <A-`> <F12>
+map <A-a> :firebug console-focus<CR>
+map <A-c> :firebug console-clear<CR>
+
+map d <Esc>
+map <A-d> :tabclose<CR>
+
+map <A-b> :dialog bookmarks<CR>
+map <A-r> :dialog cleardata<CR>
+"map <C-Space> :
+"map <Space> :
+
+
+" Russian language keyboard mappings (UTF-8)
+
+map ё `
+map й q
+map ц w
+map у e
+map к r
+map е t
+map н y
+map г u
+map ш i
+map щ o
+map з p
+map х [
+map ъ ]
+map ф a
+map ы s
+map в d
+map а f
+map п g
+map р h
+map о j
+map л k
+map д l
+map ж ;
+map э '
+map я z
+map ч x
+map с c
+map м v
+map и b
+map т n
+map ь m
+map б ,
+map ю .
+map Ё ~
+map Й Q
+map Ц W
+map У E
+map К R
+map Е T
+map Н Y
+map Г U
+map Ш I
+map Щ O
+map З P
+map Х {
+map Ъ }
+map Ф A
+map Ы S
+map В D
+map А F
+map П G
+map Р H
+map О J
+map Л K
+map Д L
+map Ж :
+map Э "
+map Я Z
+map Ч X
+map С C
+map М V
+map И B
+map Т N
+map Ь M
+map Б <
+map Ю >
+map . /
+
+" End of the mapping
+
+map <C-Ц> <Esc>
+
+map <C-о> <C-d>
+map <C-л> <C-u>
+map <C-р> <C-PageUp>
+map <C-д> <C-PageDown>
+map <A-C-р> :tabprev<CR>
+map <A-C-д> :tabnext<CR>
+
+imap <C-о> <Esc><C-d>
+imap <C-л> <Esc><C-u>
+imap <C-р> <C-PageUp>
+imap <C-д> <C-PageDown>
+
+map <A-о> :wincmd j<CR>
+map <A-л> :wincmd k<CR>
+map <A-р> :wincmd h<CR>
+map <A-д> :wincmd l<CR>
+
+map <A-ё> <F12>
+map <A-ф> :firebug console-focus<CR>
+map <A-ч> :firebug console-clear<CR>
+
+map в <Esc>
+map <A-в> :tabclose<CR>
+
+map <A-и> :dialog bookmarks<CR>
+map <A-к> :dialog cleardata<CR>
+map пе gt
+map пЕ gT
+
+" Tile windows
+map <C-W>s :emenu Tile.Tile Duplicate Tab.Below<CR>
+map <C-W>v :emenu Tile.Tile Duplicate Tab.Right<CR>
+map <C-W>d :tabclose<CR>
+loadplugins '\.(js|penta)$'
+group user
+set
+fbwhitelist=youtube.com,vimeo.com
+"set guioptions=T
+
+" vim: set ft=pentadactyl:
+" set nextpattern ^ = \ s * (вперед | дальше) \ s *
+" set previouspattern ^ = \ s * (назад | ближе) \ s *
+
+"Y-y 键 anti 转
+noremap y Y
+noremap Y y
+
+"No success of the original ctrl + x / c / v / a 恢复
+noremap <C-c> <C-v> <C-c>
+noremap <C-a> <C-v> <C-a>
+cmap -builtin <C-c> <C-v> <C-c>
+cmap -builtin <C-v> <C-v> <C-v>
+cmap -builtin <C-x> <C-v> <C-x>
+imap -builtin <C-a> <C-v> <C-a>
+imap -builtin <C-c> <C-v> <C-c>
+imap -builtin <C-v> <C-v> <C-v>
+imap -builtin <C-x> <C-v> <C-x>
+imap -builtin <C-z> <C-v> <C-z>
+
+"开 rapid strokes
+: qmark t www.twitter.com
+: qmark i http://readitlaterlist.com/a/queue/
+: qmark m www.google.com/mail
+: qmark r https://www.google.com/reader
+
+"Comfort 设置 标 Jie 键前
+
+"Pentadactyl for currently prohibited in the following 网站
+
+"No self-com success 动补 all the shift
+cmap -builtin <S-Return> <End>. net <Home> <C-Right> www. <CR>
+cmap -builtin <C-Return> <End>. com <Home> <C-Right> www. <CR>
+
+"查询 词典
+map <C-d>: dicty <CR>
+
+"Before our 页面 浏览 查看 unit came 其它 调用 实现
+map <leader> ie: js io.run ("c: \ \ program files \ \ internet explorer \ \ iexplore.exe", [buffer.URL]) <CR>
+"Evernote join one 键
+map <C-e>: evernote <CR>
+"Readability 一键将页面转为
+map <C-r>: readability <CR>
+
+"HL 一个和后一个标签页 开前 shot for either small copies immediately
+map -builtin h gT
+map -builtin l gt
+
+
+"How 输入 instruction line schematic for a prohibited
+" style-name commandline-ime chrome: / / * # dactyl-commandline-command input {ime-mode: inactive;}
+
+"Lord 题
+colorscheme zenburn
+
+"Instrument 设置 编辑
+" set editor = '"d: \ \ program files \ \ vim \ \ vim73 \ \ gvim.exe" +-f + <line> + "sil! call cursor (0, <column>)" <file>'
+"updatedin 2013
+
+
+colorscheme solarized-light
+ loadplugins '\.(js|penta)$'
+ set pintaboardToken="<granin:C42B723D3972438734CC>"
+ 
+" Bookmark page with Pinboard.in
+com -nargs=0 rin execute "open " + function(doc) { if(doc.getSelection){s=doc.getSelection();}else{s='';}; return 'https://pinboard.in/add?next=same&url='+encodeURIComponent(doc.location.href)+'&description='+encodeURIComponent(s)+'&title='+encodeURIComponent(doc.title) }(content.document)
+ 
+" Read page later with Instapaper.com
+com -nargs=0 readlater javascript (function(d){var z=d.createElement('scr'+'ipt'),b=d.body;try{if(!b)throw(0);d.title='(Saving...)'+d.title;z.setAttribute('src','http://www.instapaper.com/j/W5oGPC0sYwWR');b.appendChild(z);}catch(e){alert('Please wait until the page has loaded.');}void(0)})(content.document)
+"  bookmarklet:      javascript:function%20iprl5(){var%20d=document,z=d.createElement('scr'+'ipt'),b=d.body,l=d.location;try{if(!b)throw(0);d.title='(Saving...)%20'+d.title;z.setAttribute('src',l.protocol+'//www.instapaper.com/j/W5oGPC0sYwWR?u='+encodeURIComponent(l.href)+'&t='+(new%20Date().getTime()));b.appendChild(z);}catch(e){alert('Please%20wait%20until%20the%20page%20has%20loaded.');}}iprl5();void(0)
+
+" Generate password with vPass.info
+com -nargs=0 vpass javascript (function(){ window.open('https://www.vpass.info?'+buffer.URL, 'vPass') })(content.document)
+" Without new window
+" com -nargs=0 vpass javascript ( location.href='https://www.vpass.info?'+buffer.URL, 'vPass')(content.document)
+
+"A command to search for contents of the current selection using a tab-completed search engine in the current or a new tab (depending on how much you bang on the keyboard): 
+:com! search-selection,ss -bang -nargs=? -complete search
+        \ -js commands.execute((bang ? open  : tabopen )
+        \ + args +   + buffer.currentWord)
+
+
+
+" :autocmd LocationChange ^https?://(www|mail)\.google\.com/ :normal! <C-z>
+:set passkeys+=mail.google.com:jk<CR>,gi
+:set passkeys+=app.asana.com:jk<CR>,gi
+" :autocmd LocationChange vpass.info :normal! <C-z>

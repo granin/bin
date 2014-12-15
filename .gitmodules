@@ -1,0 +1,3 @@
+[submodule "git@git.assembla.com:granin"]
+	path = git@git.assembla.com:granin
+	url = git@git.assembla.com:granin.git

@@ -1,0 +1,11 @@
+*.swp
+.*.sw[a-z]
+*.un~
+dotfiles/ssh
+dotfiles/.vmailrc
+Session.vim
+dotfiles/vim/plugin/
+dotfiles/vim/vundle.git/
+dotfiles/vim/backup/*
+dotfiles/vim/backup/~/*
+dotfiles/vim/bundle/*
