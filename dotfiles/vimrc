@@ -17,6 +17,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle' 
 " original repos on github
+Bundle 'lyokha/vim-xkbswitch'
 Bundle 'bkad/CamelCaseMotion'                      
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/ZoomWin'                       
@@ -97,8 +98,15 @@ Bundle 'cwoac/nvim'
 " non github repos
 "Bundle 'git://git.wincent.com/command-t.git'
 "
+
+"------------------------------------------------------------------------
+let g:XkbSwitchEnabled = 1 
+let g:XkbSwitchIMappings = ['ru']
+
+
 "------------------------------------------------------------------------
 " === Russian language ===
+
 if has("unix")
     " кодировка по-умолчанию
     set encoding=utf-8
